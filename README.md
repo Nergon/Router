@@ -19,6 +19,8 @@ $router->post("/post", function() {
 $router->match("GET|POST","/getandpost", function() {
   echo "This route is accessible by GET and POST";
 });
+
+$router->run();
 ```
 
 ### Variable Routes
@@ -30,6 +32,7 @@ $router->get("/admin/(*.)", function($page) {
   echo "Admin Panel. You are visiting page: ".$page;
 });
 
+$router->run();
 ```
 
 ### Error Handling
@@ -46,6 +49,7 @@ $router->set405(function() {
   echo "Error 405 - Not found";
 });
 
+$router->run();
 ```
 
 ### Middleware
@@ -60,5 +64,6 @@ $router->before("admin/(*.)", function($page) {
   }
 });
 
+$router->run();
 ```
 
